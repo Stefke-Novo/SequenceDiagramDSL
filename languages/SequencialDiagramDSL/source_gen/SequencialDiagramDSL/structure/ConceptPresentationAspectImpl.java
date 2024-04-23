@@ -11,18 +11,27 @@ import jetbrains.mps.smodel.runtime.ConceptPresentationBuilder;
 public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase {
   private ConceptPresentation props_Actor;
   private ConceptPresentation props_Alt;
-  private ConceptPresentation props_AltAndElse;
   private ConceptPresentation props_AsyncFunction;
-  private ConceptPresentation props_Entity;
+  private ConceptPresentation props_Class;
   private ConceptPresentation props_Event;
+  private ConceptPresentation props_Expression;
   private ConceptPresentation props_Function;
+  private ConceptPresentation props_FunctionParameter;
   private ConceptPresentation props_Loop;
   private ConceptPresentation props_Model;
   private ConceptPresentation props_NewObjectFunction;
   private ConceptPresentation props_Object;
-  private ConceptPresentation props_ObjectInstance;
+  private ConceptPresentation props_ObjectExpression;
+  private ConceptPresentation props_ObjectExpressionInstance;
+  private ConceptPresentation props_ObjectExpressionReference;
+  private ConceptPresentation props_Opt;
+  private ConceptPresentation props_Ref;
+  private ConceptPresentation props_ReturnValue;
+  private ConceptPresentation props_ReturnValueInstance;
+  private ConceptPresentation props_ReturnValueReference;
   private ConceptPresentation props_Structure;
   private ConceptPresentation props_SyncFunction;
+  private ConceptPresentation props_Type;
 
   @Override
   @Nullable
@@ -32,6 +41,7 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.Actor:
         if (props_Actor == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("Actor that triggers event");
           cpb.presentationByName();
           props_Actor = cpb.create();
         }
@@ -39,30 +49,27 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.Alt:
         if (props_Alt == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("if condition and else branch");
           cpb.rawPresentation("Alt");
           props_Alt = cpb.create();
         }
         return props_Alt;
-      case LanguageConceptSwitch.AltAndElse:
-        if (props_AltAndElse == null) {
-          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("AltAndElse");
-          props_AltAndElse = cpb.create();
-        }
-        return props_AltAndElse;
       case LanguageConceptSwitch.AsyncFunction:
         if (props_AsyncFunction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("Asynchronous function");
           cpb.presentationByName();
           props_AsyncFunction = cpb.create();
         }
         return props_AsyncFunction;
-      case LanguageConceptSwitch.Entity:
-        if (props_Entity == null) {
+      case LanguageConceptSwitch.Class:
+        if (props_Class == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          props_Entity = cpb.create();
+          cpb.shortDesc("Type of object");
+          cpb.presentationByName();
+          props_Class = cpb.create();
         }
-        return props_Entity;
+        return props_Class;
       case LanguageConceptSwitch.Event:
         if (props_Event == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -70,12 +77,25 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Event = cpb.create();
         }
         return props_Event;
+      case LanguageConceptSwitch.Expression:
+        if (props_Expression == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_Expression = cpb.create();
+        }
+        return props_Expression;
       case LanguageConceptSwitch.Function:
         if (props_Function == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
           props_Function = cpb.create();
         }
         return props_Function;
+      case LanguageConceptSwitch.FunctionParameter:
+        if (props_FunctionParameter == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_FunctionParameter = cpb.create();
+        }
+        return props_FunctionParameter;
       case LanguageConceptSwitch.Loop:
         if (props_Loop == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -104,13 +124,62 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
           props_Object = cpb.create();
         }
         return props_Object;
-      case LanguageConceptSwitch.ObjectInstance:
-        if (props_ObjectInstance == null) {
+      case LanguageConceptSwitch.ObjectExpression:
+        if (props_ObjectExpression == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
-          cpb.rawPresentation("ObjectInstance");
-          props_ObjectInstance = cpb.create();
+          props_ObjectExpression = cpb.create();
         }
-        return props_ObjectInstance;
+        return props_ObjectExpression;
+      case LanguageConceptSwitch.ObjectExpressionInstance:
+        if (props_ObjectExpressionInstance == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_ObjectExpressionInstance = cpb.create();
+        }
+        return props_ObjectExpressionInstance;
+      case LanguageConceptSwitch.ObjectExpressionReference:
+        if (props_ObjectExpressionReference == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_ObjectExpressionReference = cpb.create();
+        }
+        return props_ObjectExpressionReference;
+      case LanguageConceptSwitch.Opt:
+        if (props_Opt == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("Optional code");
+          cpb.rawPresentation("Opt");
+          props_Opt = cpb.create();
+        }
+        return props_Opt;
+      case LanguageConceptSwitch.Ref:
+        if (props_Ref == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("reference to a Model");
+          cpb.presentationByReference(0xa40b2b6aa7624d4dL, 0xa6710bcaedd9d57eL, 0x64e214356fdd2dcdL, 0x64e214356fdd2dfaL, "model", "", "");
+          props_Ref = cpb.create();
+        }
+        return props_Ref;
+      case LanguageConceptSwitch.ReturnValue:
+        if (props_ReturnValue == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          props_ReturnValue = cpb.create();
+        }
+        return props_ReturnValue;
+      case LanguageConceptSwitch.ReturnValueInstance:
+        if (props_ReturnValueInstance == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_ReturnValueInstance = cpb.create();
+        }
+        return props_ReturnValueInstance;
+      case LanguageConceptSwitch.ReturnValueReference:
+        if (props_ReturnValueReference == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_ReturnValueReference = cpb.create();
+        }
+        return props_ReturnValueReference;
       case LanguageConceptSwitch.Structure:
         if (props_Structure == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
@@ -120,10 +189,18 @@ public class ConceptPresentationAspectImpl extends ConceptPresentationAspectBase
       case LanguageConceptSwitch.SyncFunction:
         if (props_SyncFunction == null) {
           ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.shortDesc("Synchronous function");
           cpb.presentationByName();
           props_SyncFunction = cpb.create();
         }
         return props_SyncFunction;
+      case LanguageConceptSwitch.Type:
+        if (props_Type == null) {
+          ConceptPresentationBuilder cpb = new ConceptPresentationBuilder();
+          cpb.presentationByName();
+          props_Type = cpb.create();
+        }
+        return props_Type;
     }
     return null;
   }
