@@ -559,7 +559,7 @@
           <ref role="1NtTu8" to="o2ia:4FhWnAkXzVp" resolve="calledFrom" />
         </node>
         <node concept="3F0ifn" id="7Wk$nXH1qkq" role="3EZMnx">
-          <property role="3F0ifm" value="-&gt; new " />
+          <property role="3F0ifm" value="-&gt;&gt; new " />
         </node>
         <node concept="3F1sOY" id="7Wk$nXH1qkr" role="3EZMnx">
           <ref role="1NtTu8" to="o2ia:4FhWnAkXzSS" resolve="calling" />
