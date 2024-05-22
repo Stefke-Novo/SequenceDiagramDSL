@@ -40,6 +40,7 @@
         <child id="5391355733431696946" name="functions" index="3u9WXb" />
         <child id="5391355733431697113" name="calledFrom" index="3u9WYw" />
       </concept>
+      <concept id="5391355733431697343" name="SequencialDiagramDSL.structure.Loop" flags="ng" index="3u9WV6" />
       <concept id="5391355733431696955" name="SequencialDiagramDSL.structure.Object" flags="ng" index="3u9WX2" />
       <concept id="5391355733431696951" name="SequencialDiagramDSL.structure.AsyncFunction" flags="ng" index="3u9WXe" />
     </language>
@@ -96,6 +97,7 @@
               <property role="TrG5h" value="class3" />
             </node>
           </node>
+          <node concept="3u9WV6" id="6ME$VKyXB45" role="3u9WXb" />
         </node>
         <node concept="3u9WNE" id="3DFmt3jDu2n" role="3u9WXb">
           <property role="TrG5h" value="func3" />
@@ -157,7 +159,7 @@
               <property role="TrG5h" value="String" />
             </node>
             <node concept="2yG92u" id="3DFmt3jEkiH" role="2yG92l">
-              <property role="TrG5h" value="&quot;Poratna poruka&quot;" />
+              <property role="TrG5h" value="&quot;Povratna poruka&quot;" />
             </node>
             <node concept="3pXqIp" id="3DFmt3jEkiI" role="3u9WYw">
               <ref role="3pXqIo" node="3DFmt3jEkhv" resolve="obj4" />
